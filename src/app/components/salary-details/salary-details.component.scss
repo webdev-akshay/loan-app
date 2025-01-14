@@ -1,0 +1,33 @@
+  .invalid {
+    border-color: red;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    background-color: grey;
+  }
+

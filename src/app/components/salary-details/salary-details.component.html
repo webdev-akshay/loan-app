@@ -1,19 +1,52 @@
-<div class="container d-flex justify-content-center mt-5">
-  <div class="col-md-4">
-<form #salaryForm="ngForm" (ngSubmit)="onNext()">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Enter Salary</label>
-    <input type="text" class="form-control" id="salary" name="salary" [(ngModel)]="formData.salary" required id="exampleInputEmail1" aria-describedby="emailHelp">
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="salary" class="form-label">Salary:</label>
+          <input 
+            id="salary" 
+            type="number" 
+            class="form-control" 
+            formControlName="salary" 
+            [class.is-invalid]="form.get('salary')?.invalid && form.get('salary')?.touched"
+          />
+          <div *ngIf="form.get('salary')?.invalid && form.get('salary')?.touched" class="invalid-feedback">
+            <span *ngIf="form.get('salary')?.hasError('required')">Salary is required.</span>
+            <span *ngIf="form.get('salary')?.hasError('min')">Salary must be a positive number.</span>
+          </div>
+        </div>
+    
+        <div class="mb-3">
+          <label for="pan" class="form-label">PAN:</label>
+          <input 
+            id="pan" 
+            type="text" 
+            class="form-control" 
+            formControlName="pan" 
+            [class.is-invalid]="form.get('pan')?.invalid && form.get('pan')?.touched"
+          />
+          <div *ngIf="form.get('pan')?.invalid && form.get('pan')?.touched" class="invalid-feedback">
+            <span *ngIf="form.get('pan')?.hasError('required')">PAN is required.</span>
+          </div>
+        </div>
+    
+        <div class="mb-3">
+          <label for="aadhaar" class="form-label">Aadhaar:</label>
+          <input 
+            id="aadhaar" 
+            type="text" 
+            class="form-control" 
+            formControlName="aadhaar" 
+            [class.is-invalid]="form.get('aadhaar')?.invalid && form.get('aadhaar')?.touched"
+          />
+          <div *ngIf="form.get('aadhaar')?.invalid && form.get('aadhaar')?.touched" class="invalid-feedback">
+            <span *ngIf="form.get('aadhaar')?.hasError('required')">Aadhaar is required.</span>
+          </div>
+        </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+      </form>
+    </div>
   </div>
-  <div class="mb-3 ">
-    <label for="exampleInputPassword1" class="form-label">EnterPAN Card No</label>
-    <input type="text" class="form-control" id="pan" name="pan" [(ngModel)]="formData.pan" required id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Enter Addhaar Card No.</label>
-    <input type="text" class="form-control" id="aadhaar" name="aadhaar" [(ngModel)]="formData.aadhaar" required id="exampleInputPassword1">
-  </div>
-  <button type="submit" [disabled]="!salaryForm.valid" class="btn btn-primary">Next</button>
-</form>
-</div>
 </div>
