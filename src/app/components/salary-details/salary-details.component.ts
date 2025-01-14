@@ -18,8 +18,8 @@ export class SalaryDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       salary: [0, [Validators.required, Validators.min(1)]],
-      pan: ['', [Validators.required, Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],  // PAN format validation
-      aadhaar: ['', [Validators.required, Validators.pattern('^[0-9 ]{12,}$')]]  // Aadhaar with digits and spaces
+      pan: ['', [Validators.required, Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]], 
+      aadhaar: ['', [Validators.required, Validators.pattern('^[0-9 ]{12,}$')]]  
 
     });
     
