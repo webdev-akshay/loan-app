@@ -1,0 +1,19 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-md-4">
+<form #salaryForm="ngForm" (ngSubmit)="onNext()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Enter Salary</label>
+    <input type="text" class="form-control" id="salary" name="salary" [(ngModel)]="formData.salary" required id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3 ">
+    <label for="exampleInputPassword1" class="form-label">EnterPAN Card No</label>
+    <input type="text" class="form-control" id="pan" name="pan" [(ngModel)]="formData.pan" required id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Enter Addhaar Card No.</label>
+    <input type="text" class="form-control" id="aadhaar" name="aadhaar" [(ngModel)]="formData.aadhaar" required id="exampleInputPassword1">
+  </div>
+  <button type="submit" [disabled]="!salaryForm.valid" class="btn btn-primary">Next</button>
+</form>
+</div>
+</div>
