@@ -4,17 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  private formData: { salary: string; pan: string; aadhaar: string } = {
-    salary: '',
+  private formData: { salary: number; pan: string; aadhaar: string } = {
+    salary: 0,
     pan: '',
     aadhaar: '',
   };
   constructor() { }
 
-  setFormData(data:any){
+  setFormData(data:{salary:number,pan:string,addhaar:string}):void{
     this.formData={...this.formData,...data}
   }
-  getFormdata(){
+  getFormdata(): { salary: number, pan: string, aadhaar: string } {
    return this.formData
   }
 }

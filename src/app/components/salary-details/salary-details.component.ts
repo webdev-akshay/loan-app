@@ -13,22 +13,27 @@ import { CommonModule } from '@angular/common';
 export class SalaryDetailsComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router:Router) {}
+  constructor(private fb: FormBuilder, private router:Router, private dataService:DataService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      salary: [0, [Validators.required, Validators.min(1)]], 
-      pan: ['', Validators.required],
-      aadhaar: ['', Validators.required]
+      salary: [0, [Validators.required, Validators.min(1)]],
+      pan: ['', [Validators.required, Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}')]],  // PAN format validation
+      aadhaar: ['', [Validators.required, Validators.pattern('^[0-9 ]{12,}$')]]  // Aadhaar with digits and spaces
+
     });
+    
   }
 
   onSubmit(): void {
+    console.log('onSubmit triggered');
     if (this.form.valid) {
       console.log('Form submitted:', this.form.value);
-      this.router.navigate(['/pre-confirmation'])
+      this.dataService.setFormData(this.form.value);
+      this.router.navigate(['/pre-confirmation']);
     } else {
       console.log('Form is invalid');
     }
   }
+  
 }

@@ -11,12 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './preconfirmation.component.scss'
 })
 export class PreconfirmationComponent implements OnInit{
-  // formdata={}
-  formData: { salary: string; pan: string; aadhaar: string } = {
-    salary: '',
-    pan: '',
-    aadhaar: '',
-  };
+  formData!: { salary: number; pan: string; aadhaar: string };
   constructor(private router:Router, private dataService:DataService){}
   goback(){
     this.router.navigate(['/salary-details'])

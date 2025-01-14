@@ -42,8 +42,10 @@
           />
           <div *ngIf="form.get('aadhaar')?.invalid && form.get('aadhaar')?.touched" class="invalid-feedback">
             <span *ngIf="form.get('aadhaar')?.hasError('required')">Aadhaar is required.</span>
+            <span *ngIf="form.get('aadhaar')?.hasError('pattern')">Invalid Aadhaar format.</span>
           </div>
         </div>
+        
     
         <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
       </form>
