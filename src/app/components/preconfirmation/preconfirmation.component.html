@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row d-flex justify-content-center mt-5">
+    <div *ngIf="formData" class="col-md-4 d-grid justify-content-center">
+      <h5 class="mb-4 text-center">pre-Confirmation Page</h5>
+      <h6 class="mb-3">Please Confirm the entered details</h6>
+      <p><strong>Salary:-&nbsp;</strong>{{formData.salary}}</p>
+      <p><strong>Pan card:-&nbsp;</strong>{{formData.pan}}</p>
+      <p><strong>Aadhar card No.:-&nbsp;</strong>{{formData.aadhaar}}</p>
+<div>
+  <button class="btn btn-warning ms-2 me-2" (click)="goback()">Go Bank</button>
+  <button class="btn btn-success ms-2 me-2" (click)="confirm()">Confirm</button>
+
+</div>
+
+    </div>
+  </div>
+</div>
